@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#081522" />
+
+    <title>PH City Explorer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a class="brand" href="#">
+          <span class="brand-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+
+          <span class="brand-copy">
+            <strong>PH CITY</strong>
+            <small>EXPLORER</small>
+          </span>
+        </a>
+
+        <div class="sidebar-content">
+          <div class="eyebrow">DISCOVER THE ISLANDS</div>
+
+          <h1>
+            Find your next
+            <br />
+            <span>destination.</span>
+          </h1>
+
+          <p class="intro">
+            Explore cities across the Philippines. Search a place and discover
+            where it is on the map.
+          </p>
+
+          <!-- SEARCH FORM -->
+          <form id="searchForm" class="search-form">
+            <label for="cityInput"> Search a Philippine city </label>
+
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24">
+                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                <path d="m16 16 4.2 4.2"></path>
+              </svg>
+
+              <input
+                id="cityInput"
+                type="search"
+                placeholder="Try Manila, Cebu, Davao..."
+                autocomplete="off"
+                required
+                minlength="2"
+              />
+            </div>
+
+            <button id="searchButton" type="submit">
+              <span>Explore city</span>
+
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </form>
+
+          <!-- STATUS MESSAGE -->
+          <div class="status-panel" role="status" aria-live="polite">
+            <span id="statusIcon" class="status-icon">
+              <span class="status-dot"></span>
+            </span>
+
+            <div>
+              <strong id="statusTitle"> Ready to explore </strong>
+
+              <p id="statusMessage">
+                Enter a city name to find matching locations.
+              </p>
+            </div>
+          </div>
+
+          <!-- SEARCH RESULTS -->
+          <section class="results-section">
+            <div class="section-heading">
+              <span>SEARCH RESULTS</span>
+
+              <span id="resultCount" class="result-count"> 0 </span>
+            </div>
+
+            <div id="resultsList" class="results-list">
+              <div class="empty-state">
+                <span class="empty-icon">⌖</span>
+
+                <p>
+                  Your city discoveries
+                  <br />
+                  will appear here.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- SIDEBAR FOOTER -->
+        <div class="sidebar-footer">
+          <div class="footer-line"></div>
+
+          <div class="footer-meta">
+            <span>BUILT FOR EXPLORERS</span>
+            <span>PH <b>•</b> 01</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <span class="topbar-kicker"> INTERACTIVE MAP </span>
+
+            <h2>Explore the Philippines</h2>
+          </div>
+
+          <div class="map-label">
+            <span class="live-dot"></span>
+            LIVE MAP
+          </div>
+        </header>
+
+        <!-- MAP CONTAINER -->
+        <div class="map-frame">
+          <div id="map"></div>
+
+          <div class="map-caption">
+            <span class="caption-pin"></span>
+            <span>PHILIPPINES</span>
+            <i></i>
+            <span>7,641 ISLANDS</span>
+          </div>
+
+          <div class="map-hint">
+            <span class="hint-icon">↗</span>
+            <span> Search a city to place markers on the map </span>
+          </div>
+        </div>
+
+        <!-- MAIN FOOTER -->
+        <footer class="main-footer">
+          <span>
+            MAP DATA ©
+            <a
+              href="https://www.openstreetmap.org/copyright"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OPENSTREETMAP CONTRIBUTORS
+            </a>
+          </span>
+
+          <span>
+            LOCATION DATA BY
+            <a
+              href="https://open-meteo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OPEN-METEO
+            </a>
+          </span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
